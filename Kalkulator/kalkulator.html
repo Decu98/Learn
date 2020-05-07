@@ -11,14 +11,55 @@
 			var alertTextInput = document.getElementById('alertTextInput');
 			alert(alertTextInput.value)
 		}
+		function calculate(){
+			var a = +document.getElementById('firstNumber').value;
+			var b = +document.getElementById('secondNumber').value;
+			var toDo = document.getElementById('Operator').value;
+			var c ;
+			if(toDo == "_add"){
+				c = a + b;
+			}
+			else if(toDo == "_subtract"){
+				c = a - b;
+			}
+			else if(toDo == "_multiply"){
+				c = a * b;
+			}
+			else if(toDo == "_divide"){
+				c = a / b
+			}
+			document.getElementById("result").innerHTML = c;
+		}
 	</script>
+	<style>
+	div {
+		padding: 7px;
+	}
+	</style>
   </head>
   <body>
-    <div>
-		<input id="alertTextInput" type="text" />
-		<button onclick="showAlert()">Pokaż alert</button>
+    <!-- <div> -->
+		<!-- <input id="alertTextInput" type="text" /> -->
+		<!-- <button onclick="showAlert()">Pokaż alert</button> -->
 		<!-- To jest komentarz w HTML -->
 		<!-- Tutaj dodajemy elementy HTML, czyli co ma się wyświetlić -->
+	<!-- </div> -->
+	<div id="first">
+		<input id="firstNumber" type="number" step="0.01" value="0" oninput="calculate()" >
+	</div>
+	<div id="list">
+		<select id="Operator" oninput="calculate()">
+			<option value="_add">+</option>
+			<option value="_subtract">-</option>
+			<option value="_multiply">*</option>
+			<option value="_divide">/</option>
+		</select>
+	</div>
+	<div id="second">
+		<input id="secondNumber" type="number" step="0.01" value="0" oninput="calculate()" >
+	</div>
+	<div>
+		<p>=<p id="result"></p></p>
 	</div>
   </body>
 </html>
