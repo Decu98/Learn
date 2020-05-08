@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Kalkulator</title>
 	<script>
+	
 		// To jest komentarz w javascript
 		// Tutaj dodajemy kod, który coś przelicza, wylicza itd
 		
@@ -15,24 +16,36 @@
 			var a = +document.getElementById('firstNumber').value;
 			var b = +document.getElementById('secondNumber').value;
 			var toDo = document.getElementById('Operator').value;
-			var c ;
+			var c, _his ;
 			if(toDo == "_add"){
 				c = a + b;
+				_his = String(a) + '+' + String(b) + '=' + String(c);
 			}
 			else if(toDo == "_subtract"){
 				c = a - b;
+				_his = String(a) + '-' + String(b) + '=' + String(c);
 			}
 			else if(toDo == "_multiply"){
 				c = a * b;
+				_his = String(a) + '*' + String(b) + '=' + String(c);
 			}
 			else if(toDo == "_divide"){
 				c = a / b
+				_his = String(a) + '/' + String(b) + '=' + String(c);
 			}
-			document.getElementById("result").innerHTML = c;
+			var newItem = document.createElement("LI");
+			var textnode = document.createTextNode(_his);
+			newItem.appendChild(textnode);
+			// document.getElementById("result").innerHTML = c;
+			// document.getElementById("history").innerHTML = _his;
+			var history = document.getElementById("history");
+			history.insertBefore(newItem, history.childNodes[0]);
+			
 		}
 	</script>
 	<style>
 	div {
+		height: 36px;
 		padding: 7px;
 	}
 	</style>
@@ -45,10 +58,10 @@
 		<!-- Tutaj dodajemy elementy HTML, czyli co ma się wyświetlić -->
 	<!-- </div> -->
 	<div id="first">
-		<input id="firstNumber" type="number" step="0.01" value="0" oninput="calculate()" >
+		<input id="firstNumber" type="number" step="0.01" value="0"  >
 	</div>
 	<div id="list">
-		<select id="Operator" oninput="calculate()">
+		<select id="Operator" >
 			<option value="_add">+</option>
 			<option value="_subtract">-</option>
 			<option value="_multiply">*</option>
@@ -56,10 +69,18 @@
 		</select>
 	</div>
 	<div id="second">
-		<input id="secondNumber" type="number" step="0.01" value="0" oninput="calculate()" >
+		<input id="secondNumber" type="number" step="0.01" value="0"  >
 	</div>
 	<div>
-		<p>=<p id="result"></p></p>
+		<button onclick="calculate()">Calculate</button>
+	</div>
+	<!-- <div> -->
+		<!-- <p id="result"></p> -->
+	<!-- </div> -->
+	<div>
+		<ul id="history">
+		</ul>
+		
 	</div>
   </body>
 </html>
