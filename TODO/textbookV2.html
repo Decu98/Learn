@@ -1,0 +1,96 @@
+
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <title>DziennikV2</title>
+  <script>
+	var todoItems = [];
+	var addedText = 0
+	var	changedText = 0;
+	function _add(){
+		var newDiv = document.createElement("div");
+		newDiv.setAttribute("id", "div_" + addedText);
+		var _text = document.getElementById("inputArea").value;
+		var todoElement = {text: _text, status:"created"}
+		var textnode = document.createTextNode(_text);
+		var newColumn = document.getElementById("history")
+		todoItems.push(todoElement);
+		newDiv.appendChild(textnode);
+		newColumn.insertBefore(newDiv, newColumn.childNodes[0]);
+		addedText = addedText + 1;
+		console.log(addedText);
+		console.log(changedText);
+	}
+	function _accept(){
+		var removing = document.getElementById("div_" + changedText);
+		var doneAdding = document.createElement('div');
+		doneAdding.setAttribute('id', 'accepted')
+		var done = todoItems[changedText].status;
+		var copytext = document.createTextNode(todoItems[changedText].text);
+		doneAdding.appendChild(copytext);
+		var finished = document.getElementById("afterEffect");
+		finished.insertBefore(doneAdding, finished.childNodes[0]);
+		done = "accepted";
+		if(addedText > changedText){
+			changedText = changedText + 1;
+		}
+		removing.remove();
+	}
+	function _delete(){
+		var removing = document.getElementById("div_" + changedText);
+		var doneAdding = document.createElement("div");
+		doneAdding.setAttribute("id", "delated")
+		var done = todoItems[changedText].status;
+		var copytext = document.createTextNode(todoItems[changedText].text);
+		doneAdding.appendChild(copytext);
+		var finished = document.getElementById("afterEffect");
+		finished.insertBefore(doneAdding, finished.childNodes[0]);
+		done = "deleted";
+		if(addedText > changedText){
+			changedText = changedText + 1;
+		}
+		removing.remove();
+	}
+  </script>
+  <style>
+	body {
+		margin: auto;
+		max-width: 500px;
+		display: flex;
+	}
+	div {
+		max-width: 200px;
+		margin-top: 10px;
+	}
+	textarea {
+		resize: none;
+		height: 120px;
+		width: 190px;
+  }
+	#accepted {
+		background-color: green;
+	}
+	#delated {
+		background-color: red;
+	}
+	button {
+		margin: 2px;
+  }
+  </style>
+  </head>
+  <body>
+  <div class="before">
+	<div id="userInput">
+	<textarea id="inputArea" maxlength="182"placeholder="Text area"></textarea>
+	<button id="add" type="button" onclick="_add()">Dodaj</button>
+	<button onclick="_accept()">Akceptuj</button>
+	<button onclick="_delete()">Usuń</button>
+	</div>
+	<div id="history">
+		<form id="inputedData"></form>
+	</div>
+  </div>
+  <div class="after" id="afterEffect">
+  </div>
+  </body>
+</html>
