@@ -1,0 +1,95 @@
+
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <title>Dziennik</title>
+  <script>
+	var count = 0;
+	var array = [];
+	function _add(){
+		count = count + 1;
+		var _text = document.getElementById("inputArea").value;
+		var newDiv = document.createElement("div");
+		newDiv.setAttribute("id", "div_" + count);
+		var newField = document.createElement("fieldset");
+		newField.setAttribute("id", "Text_" + count);
+		var newComplete = document.createElement("button");
+		newComplete.innerHTML = "Complete";
+		newComplete.setAttribute("id", "Complete_" + count);
+		newComplete.setAttribute("type", "button");
+		newComplete.setAttribute("onclick", "_complete(this.id)");
+		var newDelete = document.createElement("button");
+		newDelete.innerHTML = "Delete"
+		newDelete.setAttribute("id", "Delete_" + count);
+		newDelete.setAttribute("type", "button");
+		newDelete.setAttribute("onclick", "_delete(this.id)");
+		var textnode = document.createTextNode(_text);
+		newField.appendChild(textnode);
+		var divAdd = document.getElementById("inputedData");
+		divAdd.insertBefore(newDiv, divAdd.childNodes[0]);
+		var history = document.getElementById("div_"+count);
+		history.insertBefore(newDelete, history.childNodes[0]);
+		history.insertBefore(newComplete, history.childNodes[0]);
+		history.insertBefore(newField, history.childNodes[0]);
+	}
+	function _complete(x){
+		console.log(x);
+	}
+	function _delete(x){
+		console.log(x);
+	}
+  </script>
+  <style>
+  body {
+	margin: auto;
+	max-width: 500px;
+	column-count: 2;
+  }
+  .before {
+	column-span: all;
+  }
+  #userInput {
+	width: 250px;
+  }
+  form {
+	padding: 0px;
+	width: 190px;
+  }
+  fieldset {
+	max-width: 190px;
+	margin: 2px;
+	padding: 2px;
+  }
+  textarea {
+	resize: none;
+	height: 120px;
+	width: 190px;
+	margin-top: 10px;
+  }
+  #add {
+	position: relative;
+	right: 0px;
+	bottom: 104px;	
+  }
+  button {
+	margin: 2px;
+  }
+  div {
+  	max-width: 250px;
+  }
+  </style>
+  </head>
+  <body>
+  <div class="before">
+	<div id="userInput">
+	<textarea id="inputArea" maxlength="182"placeholder="Text area"></textarea>
+	<button id="add" type="button" onclick="_add()">
+		Add
+	</button>
+	</div>
+	<div id="history">
+		<form id="inputedData"></form>
+	</div>
+  </div>
+  </body>
+</html>
