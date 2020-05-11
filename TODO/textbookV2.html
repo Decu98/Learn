@@ -8,48 +8,62 @@
 	var addedText = 0
 	var	changedText = 0;
 	function _add(){
+		//Utworzenie elementu i przycisków
 		var newDiv = document.createElement("div");
+		var newAcc = document.createElement("button");
+		var newDel = document.createElement("button");
+		//Nadanie artybutów dla obiektow
 		newDiv.setAttribute("id", "div_" + addedText);
+		newAcc.setAttribute("id","div_" + addedText);
+		newDel.setAttribute("id","div_" + addedText);
+		newAcc.setAttribute("onclick", "_accept(this.id)");
+		newDel.setAttribute("onclick", "_delete(this.id)");
+		newAcc.innerHTML = "Akceptuj"
+		newDel.innerHTML = "Usuń";
+		//Kopia tekstu wpisanego
 		var _text = document.getElementById("inputArea").value;
+		//Nadanie tekstu i statusu dla obiektu, i dodanie go do macieża
 		var todoElement = {text: _text, status:"created"}
+		todoItems.push(todoElement);
+		//Wklejenie tekstu to pierwszej listy i dodanie przycisków
 		var textnode = document.createTextNode(_text);
 		var newColumn = document.getElementById("history")
-		todoItems.push(todoElement);
 		newDiv.appendChild(textnode);
 		newColumn.insertBefore(newDiv, newColumn.childNodes[0]);
+		newColumn.insertBefore(newDel, newColumn.childNodes[0]);
+		newColumn.insertBefore(newAcc, newColumn.childNodes[0]);
 		addedText = addedText + 1;
-		console.log(addedText);
-		console.log(changedText);
 	}
-	function _accept(){
-		var removing = document.getElementById("div_" + changedText);
+	function _accept(x){
+		//Kopia tekstu
+		var textTransfer = todoItems[changedText].text;
+		//Wysłanie danych do funckji pomocniczej z informacja o zmianie statusu
+		_completeTask(textTransfer, "accepted", x);
+	}
+	function _delete(x){
+		//Kopia tekstu
+		var textTransfer = todoItems[changedText].text;
+		//Wysłanie danych do funckji pomocniczej z informacja o zmianie statusu
+		_completeTask(textTransfer, "delated", x);
+	}
+	function _completeTask(text, status, id){
+		//Utworzenie miejsca na liscie
 		var doneAdding = document.createElement('div');
-		doneAdding.setAttribute('id', 'accepted')
-		var done = todoItems[changedText].status;
-		var copytext = document.createTextNode(todoItems[changedText].text);
+		//Zmiana statusu obiektu
+		doneAdding.setAttribute('id', status);
+		//Wklejenie tekstu obiektu
+		var copytext = document.createTextNode(text);
 		doneAdding.appendChild(copytext);
 		var finished = document.getElementById("afterEffect");
 		finished.insertBefore(doneAdding, finished.childNodes[0]);
-		done = "accepted";
 		if(addedText > changedText){
 			changedText = changedText + 1;
 		}
-		removing.remove();
-	}
-	function _delete(){
-		var removing = document.getElementById("div_" + changedText);
-		var doneAdding = document.createElement("div");
-		doneAdding.setAttribute("id", "delated")
-		var done = todoItems[changedText].status;
-		var copytext = document.createTextNode(todoItems[changedText].text);
-		doneAdding.appendChild(copytext);
-		var finished = document.getElementById("afterEffect");
-		finished.insertBefore(doneAdding, finished.childNodes[0]);
-		done = "deleted";
-		if(addedText > changedText){
-			changedText = changedText + 1;
+		//Usuniecie obiektu z pierwszej tabeli
+		for(i = 0; i < 3; i++){
+			var IdOfObj = document.getElementById(id);
+			IdOfObj.remove();
 		}
-		removing.remove();
 	}
   </script>
   <style>
@@ -60,7 +74,7 @@
 	}
 	div {
 		max-width: 200px;
-		margin-top: 10px;
+		margin: 10px;
 	}
 	textarea {
 		resize: none;
@@ -83,8 +97,6 @@
 	<div id="userInput">
 	<textarea id="inputArea" maxlength="182"placeholder="Text area"></textarea>
 	<button id="add" type="button" onclick="_add()">Dodaj</button>
-	<button onclick="_accept()">Akceptuj</button>
-	<button onclick="_delete()">Usuń</button>
 	</div>
 	<div id="history">
 		<form id="inputedData"></form>
