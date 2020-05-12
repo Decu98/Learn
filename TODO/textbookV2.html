@@ -5,8 +5,8 @@
   <title>DziennikV2</title>
   <script>
 	var todoItems = [];
-	var addedText = 0
-	var	changedText = 0;
+	var addedText = 0;
+	var changedText = 0;
 	function _add(){
 		//Utworzenie elementu i przycisków
 		var newDiv = document.createElement("div");
@@ -36,13 +36,13 @@
 	}
 	function _accept(x){
 		//Kopia tekstu
-		var textTransfer = todoItems[changedText].text;
+		var textTransfer = todoItems[x.split("_").pop()].text;
 		//Wysłanie danych do funckji pomocniczej z informacja o zmianie statusu
 		_completeTask(textTransfer, "accepted", x);
 	}
 	function _delete(x){
 		//Kopia tekstu
-		var textTransfer = todoItems[changedText].text;
+		var textTransfer = todoItems[x.split("_").pop()].text;
 		//Wysłanie danych do funckji pomocniczej z informacja o zmianie statusu
 		_completeTask(textTransfer, "delated", x);
 	}
@@ -80,7 +80,7 @@
 		resize: none;
 		height: 120px;
 		width: 190px;
-  }
+	}
 	#accepted {
 		background-color: green;
 	}
