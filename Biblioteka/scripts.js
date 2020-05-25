@@ -20,8 +20,8 @@ function toLibrary(){
 	libraryUpdate();
 	for(i = 0; i < biblioteka.length; i++){
 		var n1 = biblioteka[i].Tytuł;
-		var n2 = biblioteka[i].Autor
-		var n3 = biblioteka[i].ISBN
+		var n2 = biblioteka[i].Autor;
+		var n3 = biblioteka[i].ISBN;
 		var whole = "Tytuł: " + n1 + " " + "Autor: " + n2 + " " + "ISBN: " + n3;
 		var newH = document.createElement("P");
 		newH.setAttribute("id", "H1_" + i);
@@ -53,5 +53,25 @@ function saveEdit(x){
 }
 
 function approveEdit(){
+	libraryUpdate();
+	var getID = localStorage.getItem("IDofBookEdited");
+	var getBooks = localStorage.getItem("books");
+	var IDtransfer = Number(getID.split("_").pop());
+	var newTitle = document.getElementById("TitleEdit").value;
+	var newAuthor = document.getElementById("AuthorEdit").value;
+	var newCount = document.getElementById("CountEdit").value;
+	var temporarySave = JSON.parse(getBooks);
+	temporarySave[IDtransfer].Tytuł = newTitle;
+	temporarySave[IDtransfer].Autor = newAuthor;
+	temporarySave[IDtransfer].Ilość = newCount;
+	localStorage.setItem('books', JSON.stringify(temporarySave));
 	localStorage.removeItem("IDofBookEdited");
 }
+
+
+
+
+
+
+
+
