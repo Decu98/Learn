@@ -71,24 +71,33 @@ function searchFor(){
 
 function showResults(x){
 	for(i = 0; i < x.length; i++){
-		var n1 = x[i].Tytuł;
-		var n2 = x[i].Autor;
-		var n3 = x[i].ISBN;
-		var n4 = x[i].ID_;
-		var whole = "Tytuł: " + n1 + " " + "Autor: " + n2 + " " + "ISBN: " + n3;
-		var newH = document.createElement("P");
+		var book = x[i];
+		var _title = "Tytuł: " + book.Tytuł;
+		var _author = "Autor: " + book.Autor;
+		var _isbn = "ISBN: " + book.ISBN;
+		var newH = document.createElement("div");
+		newH.setAttribute("id", "Div_" + i)
+		newH.setAttribute("class", "LibraryBooks");
 		var newB0 = document.createElement("button");
 		var newB1 = document.createElement("button");
-		newH.setAttribute("id", "P1_" + n4);
-		newB0.setAttribute("id", "Button0_" + n4);
-		newB1.setAttribute("id", "Button1_" + n4);
+		newB0.setAttribute("id", "Button0_" + book.ID_);
+		newB1.setAttribute("id", "Button1_" + book.ID_);
+		delete book.ID_;
+		delete book.Ilość;
+		for(var key in book){
+			var newX = document.createElement("P");
+			var textnode = document.createTextNode(key + ": " + book[key]);
+			newX.appendChild(textnode);
+			newH.appendChild(newX);
+		}
+
 		newB0.setAttribute("onclick", "window.location.href = 'editbook.html'; saveEdit(this.id)")
 		newB1.setAttribute("onclick", "window.location.href = 'rent.html'; saveEdit(this.id)")
 		newB0.innerHTML = "Edytuj";
 		newB1.innerHTML = "Wypożycz";
-		var textnode = document.createTextNode(whole);
+		//var textnode = document.createTextNode(whole);
 		var position = document.getElementById("Main");
-		newH.appendChild(textnode);
+		//newH.appendChild(textnode);
 		newH.appendChild(newB0);
 		newH.appendChild(newB1);
 		position.appendChild(newH);
@@ -98,6 +107,16 @@ function showResults(x){
 function clearBox(elementID)
 {
     document.getElementById(elementID).innerHTML = "";
+}
+
+function rent_open(){
+	libraryUpdate();
+	var getID = localStorage.getItem("IDofBookEdited");
+	var IDtransfer = Number(getID.split("_").pop());
+	document.getElementById("rent_title").innerHTML = "Tytuł: " + biblioteka[IDtransfer].Tytuł;
+	document.getElementById("rent_author").innerHTML = "Autor: " + biblioteka[IDtransfer].Autor;
+	document.getElementById("rent_isbn").innerHTML = "ISBN: " + biblioteka[IDtransfer].ISBN;
+	document.getElementById("rent_amout").innerHTML = "Ilość: " + biblioteka[IDtransfer].Ilość;
 }
 
 

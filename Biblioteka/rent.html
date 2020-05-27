@@ -1,11 +1,20 @@
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
 <script src="scripts.js">
 </script>
 </head>
-<body>
+<body onload="rent_open()">
+<div>
+<p id="rent_title" class="Rent"></p>
+<p id="rent_author" class="Rent"></p>
+<p id='rent_isbn' class="Rent"></p>
+<p id='rent_amout' class="Rent"></p>
+<input id='searchforuser'></input>
+<button>Szukaj</button>
+</div>
 <button onclick="window.location.href = 'library.html'; clearID()">Wróć do biblioteki</button>
-<button onclick="window.location.href = 'menu.html'; clearID()">Wróć do menu</button>
+<button class="BackToMenu" onclick="window.location.href = 'menu.html'; clearID()">Wróć do menu</button>
 </body>
 </html>
 

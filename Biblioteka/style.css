@@ -1,0 +1,74 @@
+a {
+	font-family: Helvetica;
+	font-weight: bold;
+	background: #eeeeee;
+	text-align: center;
+	color: #000000;
+	padding: 10px 20px;
+	text-decoration: none;
+	display: block;
+	border: 2px solid #df7116;
+	width: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	cursor:pointer;
+}
+a:hover {
+	background: #df7116;
+}
+body {
+	background: #ffffff;
+}
+p {
+	display: grid;
+	font-family: Helvetica;
+	font-weight: bold;
+	width: 250px;
+	height: 40px;
+}
+button {
+	border-radius: 3px;
+	margin: 5px;
+	width: 100px;
+	cursor:pointer;	
+	background: #df7116;
+	border: 1px solid #df7116;
+}
+button:hover {
+	background:linear-gradient(to bottom, #cc6d1d 5%, #f28122 100%);
+}
+.LibraryBooks {
+	margin: 2px;
+	border: 2px solid #df7116;
+	padding: 10px 20px;
+	background: #eeeeee;
+	display: inline-block;
+}
+.LibraryBooks:hover{
+	background: #ffffff;
+}
+.BackToMenu {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.Edit {
+	height: 20px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.Edycja {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.Rent {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	height: 20px;
+}

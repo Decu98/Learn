@@ -1,12 +1,16 @@
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
 <script src="scripts.js">
 </script>
 </head>
 <body onload="toLibrary()">
-<input id="Szukaj"></input><button onclick="clearBox('Main'); searchFor()">Szukaj</button>
+<header>
+<input id="Szukaj" placeholder="Wyszukanie" class="BackToMenu"></input>
+<button onclick="clearBox('Main'); searchFor()" class="BackToMenu">Szukaj</button>
+</header>
 <div id="Main"></div>
-<button onclick="window.location.href = 'menu.html';">Wróć do menu</button>
+<button class="BackToMenu" onclick="window.location.href = 'menu.html';">Wróć do menu</button>
 </body>
 </html>
 

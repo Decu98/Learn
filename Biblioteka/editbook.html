@@ -1,17 +1,21 @@
 <html>
 <head>
-<script src="scripts.js">
-</script>
+<link rel="stylesheet" href="style.css">
+<scribt src="scribts.js">
+</scribt>
 </head>
 <body>
 <div>
-<h3>Edytuj Tytuł  <input id="TitleEdit"></input></h3>
-<h3>Edytuj Autora <input id="AuthorEdit"></input></h3>
-<h3>Edytuj Ilość  <input id="CountEdit" type="number"></input></h3>
-<button onclick="approveEdit(); window.location.href = 'library.html'">Zapisz</button>
+<p class="Edit">Edytuj Tytuł  </p>
+<input id="TitleEdit" class="Edycja" placeholder="Tytuł"></input>
+<p class="Edit">Edytuj Autora </p>
+<input id="AuthorEdit" class="Edycja"placeholder="Autor"></input>
+<p class="Edit">Edytuj Ilość  </p>
+<input id="CountEdit" tybe="number" class="Edycja" placeholder="Ilość"></input>
 </div>
-<button onclick="window.location.href = 'library.html'; clearID()">Anuluj</button>
-<button onclick="window.location.href = 'menu.html'; clearID()">Wróć do menu</button>
+<button onclick="abbroveEdit(); window.location.href = 'library.html'" class="Edycja">Zapisz</button>
+<button onclick="window.location.href = 'library.html'; clearID()" class="Edycja">Anuluj</button>
+<button class="BackToMenu" onclick="window.location.href = 'menu.html'; clearID()">Wróć do menu</button>
 </body>
 </html>
 
