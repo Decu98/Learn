@@ -9,7 +9,7 @@ function approveEdit(){
 	var temporarySave = JSON.parse(getBooks);
 	temporarySave[bookID].Tytuł = newTitle;
 	temporarySave[bookID].Autor = newAuthor;
-	temporarySave[bookID].Ilość = newCount;
+	temporarySave[bookID].Ilosc = newCount;
 	localStorage.setItem('books', JSON.stringify(temporarySave));
 	localStorage.removeItem("IDofBookEdited");
 }

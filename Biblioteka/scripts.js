@@ -1,5 +1,6 @@
 
 var biblioteka = [];
+var users = [];
 var temp = [];
 
 function libraryUpdate(){
@@ -11,6 +12,14 @@ function libraryUpdate(){
 
 function clearID(){
 	localStorage.removeItem("IDofBookEdited");
+}
+
+function usersUpdate(){
+	var loadData = localStorage.getItem("users");
+	if(loadData !== null){
+		users = JSON.parse(loadData);
+	}
+	
 }
 
 

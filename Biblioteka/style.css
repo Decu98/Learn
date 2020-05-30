@@ -8,7 +8,7 @@ a {
 	text-decoration: none;
 	display: block;
 	border: 2px solid #df7116;
-	width: 150px;
+	width: 200px;
 	margin-left: auto;
 	margin-right: auto;
 	cursor:pointer;
@@ -71,4 +71,25 @@ button:hover {
 	margin-right: auto;
 	text-align: center;
 	height: 20px;
+}
+input {
+	margin-left: auto;
+	margin-right: auto;
+}
+.rent-book {
+	display: grid;
+}
+.rent-button {
+	margin-left: auto;
+	margin-right: auto;
+}
+h3 {
+	display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+.addbook-button {
+	display: table;
+    margin-left: auto;
+    margin-right: auto;
 }

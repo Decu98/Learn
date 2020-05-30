@@ -1,5 +1,6 @@
 <html>
 <head>
+<title>Dodaj książke</title>
 <link rel="stylesheet" href="style.css">
 <script src="scripts.js"></script>
 <script src="addBook.js"></script>
@@ -8,8 +9,10 @@
 <h3>Tytuł <input id='Tytul'></h3>
 <h3>Autor <input id='Autor'></h3>
 <h3>ISBN  <input type="number" id='ISBN'></h3>
-<h3>Ilość <input type="number" id='Ilosc'></h3>
-<button onclick="_addbook()">Dodaj</button>
+<h3>Ilosc <input type="number" id='Ilosc'></h3>
+<div class="addbook-button">
+<button onclick="addBook()">Dodaj</button>
 <button onclick="window.location.href = 'menu.html';">Wróć do menu</button>
+</div>
 </body>
 </html>
