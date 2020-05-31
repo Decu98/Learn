@@ -73,6 +73,30 @@ function showData(x, id, type) {
 
 }
 
+function setId(type) {
+	if (type == "book") {
+		var BookId_ = localStorage.getItem("BookId");
+		if (BookId_ == null) {
+			localStorage.setItem("BookId", +BookId_ + 1);
+			return +BookId_;
+		} else {
+			var x = +BookId_ + 1;
+			localStorage.setItem("BookId", x);
+			return +BookId_;
+		}
+	}
+	if (type == "user") {
+		var userId_ = localStorage.getItem("userId");
+		if (userId_ == null) {
+			localStorage.setItem("userId", +userId_ + 1);
+			return +userId_;
+		} else {
+			var x = +userId_ + 1;
+			localStorage.setItem("userId", x);
+			return +userId_;
+		}
+	}
+}
 
 
 

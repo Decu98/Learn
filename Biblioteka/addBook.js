@@ -8,22 +8,10 @@ function addBook() {
 	if (tytul.length == 0 || autor.length == 0 || isbn.length == 0 || ilosc.length == 0) {
 		alert("Uzupełni dane");
 	} else {
-		var book = { Tytuł: tytul, Autor: autor, ISBN: isbn, Ilosc: ilosc, WBibliotece: ilosc, Wypozyczone: 0, BookId_: setBookIdOfBook() };
+		var book = { Tytuł: tytul, Autor: autor, ISBN: isbn, Ilosc: ilosc, WBibliotece: ilosc, Wypozyczone: 0, BookId_: setId("book") };
 		biblioteka.push(book)
 		localStorage.setItem('books', JSON.stringify(biblioteka));
 
-	}
-}
-
-function setBookIdOfBook() {
-	var BookId_ = localStorage.getItem("BookId");
-	if (BookId_ == null) {
-		localStorage.setItem("BookId", +BookId_ + 1);
-		return +BookId_;
-	} else {
-		var x = +BookId_ + 1;
-		localStorage.setItem("BookId", x);
-		return +BookId_;
 	}
 }
 
