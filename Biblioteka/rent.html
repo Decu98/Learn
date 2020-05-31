@@ -1,21 +1,27 @@
 <html>
+
 <head>
 	<title>Wypożycz</title>
 	<link rel="stylesheet" href="style.css">
 	<script src="scripts.js"></script>
 	<script src="rent.js"></script>
+	<script src="showuser.js"></script>
 </head>
+
 <body onload="rent_open()">
 	<div class="rent-book">
 		<p id="rent_title" class="Rent"></p>
 		<p id="rent_author" class="Rent"></p>
 		<p id='rent_isbn' class="Rent"></p>
-		<p id='rent_amout' class="Rent"></p>
+		<p id="rent_inlibrary" class="Rent"></p>
+		<p id="rent_rented" class="Rent"></p>
 		<input id='searchforuser'></input>
-		<button class="rent-button">Szukaj</button>
-		<button onclick="window.location.href = 'library.html'; clearID()" class="rent-button">Wróć do biblioteki</button>
+		<button class="rent-button" onclick="clearBox('usersFound'); searchUser()">Szukaj</button>
+		<div id="usersFound"></div>
+		<button onclick="window.location.href = 'library.html'" class="rent-button">Wróć do
+			biblioteki</button>
 	</div>
 	<button class="BackToMenu" onclick="window.location.href = 'menu.html'; clearID()">Wróć do menu</button>
 </body>
-</html>
 
+</html>

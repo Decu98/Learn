@@ -1,11 +1,11 @@
 function showUsers() {
 	usersUpdate();
-	displayUsers();
+	displayUsers(users,"showUsers");
 }
 
-function displayUsers() {
-	for (var key in users) {
-		var helper = users[key];
+function displayUsers(x,id) {
+	for (var key in x) {
+		var helper = x[key];
 		var newDivElement = document.createElement("div");
 		newDivElement.setAttribute("class", "LibraryBooks");
 		delete helper.Id;
@@ -16,7 +16,7 @@ function displayUsers() {
 			newX.appendChild(textnode);
 			newDivElement.appendChild(newX);
 		}
-		var position = document.getElementById("show-users");
+		var position = document.getElementById(id);
 		position.appendChild(newDivElement);
 	}
 }

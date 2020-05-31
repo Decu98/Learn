@@ -1,7 +1,6 @@
 
 var biblioteka = [];
 var users = [];
-var temp = [];
 
 function libraryUpdate() {
 	var loadData = localStorage.getItem('books');
@@ -20,6 +19,10 @@ function usersUpdate() {
 		users = JSON.parse(loadData);
 	}
 
+}
+
+function clearBox(elementID) {
+	document.getElementById(elementID).innerHTML = "";
 }
 
 
