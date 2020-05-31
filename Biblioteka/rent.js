@@ -22,6 +22,6 @@ function searchUser() {
 			temp.push(restart);
 		}
 	}
-	displayUsers(temp,"usersFound");
+	showData(temp, "usersFound", "user");
 }
 
