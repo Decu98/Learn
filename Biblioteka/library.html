@@ -1,17 +1,19 @@
 <html>
-<head>
-<title>Biblioteka</title>
-<link rel="stylesheet" href="style.css">
-<script src="scripts.js"></script>
-<script src="library.js"></script>
-</head>
-<body onload="toLibrary()">
-<header>
-<input id="Szukaj" placeholder="Wyszukanie" class="BackToMenu"></input>
-<button onclick="clearBox('Main'); searchFor()" class="BackToMenu">Szukaj</button>
-</header>
-<div id="Main"></div>
-<button class="BackToMenu" onclick="window.location.href = 'menu.html';">Wróć do menu</button>
-</body>
-</html>
 
+<head>
+    <title>Biblioteka</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+    <script src="library.js"></script>
+</head>
+
+<body onload="toLibrary()">
+    <header>
+        <input id="Szukaj" placeholder="Wyszukanie" class="BackToMenu"></input>
+        <button onclick="clearBox('Main'); searchFor()" class="BackToMenu">Szukaj</button>
+    </header>
+    <div id="Main"></div>
+    <button class="BackToMenu" onclick="window.location.href = 'menu.html';">Wróć do menu</button>
+</body>
+
+</html>

@@ -6,5 +6,5 @@ function rent_open(){
 	document.getElementById("rent_title").innerHTML = "Tytuł: " + biblioteka[getIdFromURL].Tytuł;
 	document.getElementById("rent_author").innerHTML = "Autor: " + biblioteka[getIdFromURL].Autor;
 	document.getElementById("rent_isbn").innerHTML = "ISBN: " + biblioteka[getIdFromURL].ISBN;
-	document.getElementById("rent_amout").innerHTML = "Ilosc: " + biblioteka[getIdFromURL].Ilosc;
+	document.getElementById("rent_amout").innerHTML = "Ilość: " + biblioteka[getIdFromURL].Ilosc;
 }

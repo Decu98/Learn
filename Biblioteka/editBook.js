@@ -1,5 +1,5 @@
 
-function approveEdit(){
+function approveEdit() {
 	libraryUpdate();
 	var getBooks = localStorage.getItem("books");
 	var bookID = new URLSearchParams(window.location.search).get('bookCode');

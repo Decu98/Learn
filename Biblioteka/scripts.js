@@ -3,23 +3,23 @@ var biblioteka = [];
 var users = [];
 var temp = [];
 
-function libraryUpdate(){
+function libraryUpdate() {
 	var loadData = localStorage.getItem('books');
-	if(loadData !== null){
+	if (loadData !== null) {
 		biblioteka = JSON.parse(loadData);
 	}
 }
 
-function clearID(){
+function clearID() {
 	localStorage.removeItem("IDofBookEdited");
 }
 
-function usersUpdate(){
+function usersUpdate() {
 	var loadData = localStorage.getItem("users");
-	if(loadData !== null){
+	if (loadData !== null) {
 		users = JSON.parse(loadData);
 	}
-	
+
 }
 
 

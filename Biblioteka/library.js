@@ -28,10 +28,8 @@ function showResults(x){
 		newDivElement.setAttribute("class", "LibraryBooks");
 		var editButton = document.createElement("button");
 		var rentButton = document.createElement("button");
-		editButton.setAttribute("id", "Button0_" + x[key].ID_);
-		rentButton.setAttribute("id", "Button1_" + x[key].ID_);
-		editButton.setAttribute("onclick", `window.location.href = "editbook.html?bookCode=${x[key].ID_}"`);
-		rentButton.setAttribute("onclick", `window.location.href = "rent.html?bookCode=${x[key].ID_}"`)
+		editButton.setAttribute("onclick", `window.location.href = "editbook.html?bookCode=${x[key].BookId_}"`);
+		rentButton.setAttribute("onclick", `window.location.href = "rent.html?bookCode=${x[key].BookId_}"`)
 		editButton.innerHTML = "Edytuj";
 		rentButton.innerHTML = "Wypożycz";
 		delete book.BookId_

@@ -1,23 +1,25 @@
 <html>
-<head>
-<title>Edytuj ksiązkę</title>
-<link rel="stylesheet" href="style.css">
-<script src="scripts.js"></script>
-<script src="editBook.js">
-</script>
-</head>
-<body>
-<div>
-<p class="Edit">Edytuj Tytuł  </p>
-<input id="TitleEdit" class="Edycja" placeholder="Tytuł"></input>
-<p class="Edit">Edytuj Autora </p>
-<input id="AuthorEdit" class="Edycja"placeholder="Autor"></input>
-<p class="Edit">Edytuj Ilosc  </p>
-<input id="CountEdit" tybe="number" class="Edycja" placeholder="Ilosc"></input>
-</div>
-<button onclick="approveEdit(); window.location.href = 'library.html'" class="Edycja">Zapisz</button>
-<button onclick="window.location.href = 'library.html'" class="Edycja">Anuluj</button>
-<button class="BackToMenu" onclick="window.location.href = 'menu.html'">Wróć do menu</button>
-</body>
-</html>
 
+<head>
+    <title>Edytuj ksiązkę</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+    <script src="editBook.js">
+    </script>
+</head>
+
+<body>
+    <div>
+        <p class="Edit">Edytuj Tytuł </p>
+        <input id="TitleEdit" class="Edycja" placeholder="Tytuł"></input>
+        <p class="Edit">Edytuj Autora </p>
+        <input id="AuthorEdit" class="Edycja" placeholder="Autor"></input>
+        <p class="Edit">Edytuj Ilosc </p>
+        <input id="CountEdit" tybe="number" class="Edycja" placeholder="Ilosc"></input>
+    </div>
+    <button onclick="approveEdit(); window.location.href = 'library.html'" class="Edycja">Zapisz</button>
+    <button onclick="window.location.href = 'library.html'" class="Edycja">Anuluj</button>
+    <button class="BackToMenu" onclick="window.location.href = 'menu.html'">Wróć do menu</button>
+</body>
+
+</html>
