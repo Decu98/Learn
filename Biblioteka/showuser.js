@@ -1,4 +1,4 @@
 function showUsers() {
-	usersUpdate();
-	showData(users,"showUsers", 'user');
+	updateStorage("user");
+	showData(users,"showUsers", 'user', "show");
 }

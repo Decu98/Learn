@@ -1,6 +1,6 @@
 
 function addBook() {
-	libraryUpdate();
+	updateStorage("book");
 	var tytul = document.getElementById('Tytul').value;
 	var autor = document.getElementById('Autor').value;
 	var isbn = document.getElementById('ISBN').value;

@@ -1,4 +1,5 @@
 function addUser() {
+	updateStorage("user");
 	var name = document.getElementById("Name").value;
 	var surname = document.getElementById("Surname").value;
 	var PESEL = document.getElementById("PESEL").value;

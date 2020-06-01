@@ -2,31 +2,37 @@
 var biblioteka = [];
 var users = [];
 
-function libraryUpdate() {
-	var loadData = localStorage.getItem('books');
-	if (loadData !== null) {
-		biblioteka = JSON.parse(loadData);
+function updateStorage(target){
+	switch (target) {
+		case "book":
+			var loadData = localStorage.getItem('books');
+				if (loadData !== null) {
+				biblioteka = JSON.parse(loadData);
+			}
+			break;
+		case "user":
+			var loadData = localStorage.getItem("users");
+				if (loadData !== null) {
+				users = JSON.parse(loadData);
+			}
+			break;
+		default:
+			console.log("Select target");
 	}
+
+
 }
 
 function clearID() {
 	localStorage.removeItem("IDofBookEdited");
 }
 
-function usersUpdate() {
-	var loadData = localStorage.getItem("users");
-	if (loadData !== null) {
-		users = JSON.parse(loadData);
-	}
-
-}
-
 function clearBox(elementID) {
 	document.getElementById(elementID).innerHTML = "";
 }
 
-function showData(x, id, type) {
-	switch (type){
+function showData(x, id, type, place) {
+	switch (type) {
 		case "book":
 			for (var key in x) {
 				var book = x[key];
@@ -59,7 +65,7 @@ function showData(x, id, type) {
 				var helper = x[key];
 				var newDivElement = document.createElement("div");
 				newDivElement.setAttribute("class", "LibraryBooks");
-				delete helper.Id;
+				delete helper.Rented;
 				delete helper.Rented;
 				for (var element in helper) {
 					var newX = document.createElement("P");
@@ -69,6 +75,13 @@ function showData(x, id, type) {
 				}
 				var position = document.getElementById(id);
 				position.appendChild(newDivElement);
+				if (place == "rent") {
+					var chosebook = new URLSearchParams(window.location.search).get("bookCode");
+					var choseButton = document.createElement('button');
+					choseButton.setAttribute('onclick', `rentBook(${chosebook},${x[key].Id})`);
+					choseButton.innerHTML = "Wybierz";
+					newDivElement.appendChild(choseButton);
+				}
 			}
 			break;
 		default:

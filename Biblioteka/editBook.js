@@ -1,6 +1,6 @@
 
 function approveEdit() {
-	libraryUpdate();
+	updateStorage("book");
 	var getBooks = localStorage.getItem("books");
 	var bookID = new URLSearchParams(window.location.search).get('bookCode');
 	var newTitle = document.getElementById("TitleEdit").value;

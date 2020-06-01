@@ -1,11 +1,11 @@
 
 function toLibrary() {
-	libraryUpdate();
+	updateStorage("book");
 	showData(biblioteka,'Main', 'book');
 }
 function searchFor() {
 	temp = [];
-	libraryUpdate();
+	updateStorage("book");
 	var getText = document.getElementById("Szukaj").value;
 	for (i = 0; i < biblioteka.length; i++) {
 		var objectToString = JSON.stringify(biblioteka[i]);

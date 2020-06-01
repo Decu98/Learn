@@ -1,6 +1,6 @@
 
 function rent_open() {
-	libraryUpdate();
+	updateStorage("book");
 	var urlParams = new URLSearchParams(window.location.search)
 	var getIdFromURL = urlParams.get("bookCode")
 	document.getElementById("rent_title").innerHTML = "Tytuł: " + biblioteka[getIdFromURL].Tytuł;
@@ -12,7 +12,7 @@ function rent_open() {
 
 function searchUser() {
 	temp = [];
-	usersUpdate();
+	updateStorage("user");
 	var dataInputed = document.getElementById("searchforuser").value;
 	for (i = 0; i < users.length; i++) {
 		var objectToString = JSON.stringify(users[i]);
@@ -22,6 +22,19 @@ function searchUser() {
 			temp.push(restart);
 		}
 	}
-	showData(temp, "usersFound", "user");
+	showData(temp, "usersFound", "user", "rent");
 }
 
+function rentBook(bookID, userID) {
+	var rentedBooks = users[bookID].Rented
+	var checkBooks = rentedBooks.includes(+bookID)
+	if(checkBooks == true){
+		alert("Masz już tą książkę");
+	}
+	else{
+		alert("Proszę");
+		rentedBooks.push(bookID);
+	}
+	console.log(checkBooks)
+	console.log(users[bookID].Rented)
+}
