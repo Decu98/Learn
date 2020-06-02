@@ -8,6 +8,10 @@
 </head>
 
 <body onload="showUsers()">
+    <header>
+        <input id="Szukaj" placeholder="Wyszukanie" class="BackToMenu"></input>
+        <button onclick="clearBox('showUsers'); searchFor()" class="BackToMenu">Szukaj</button>
+    </header>
     <div id="showUsers">
     </div>
     <button class="BackToMenu" onclick="window.location.href = 'users.html';">Wróć</button>

@@ -4,7 +4,7 @@
     <title>Edytuj ksiązkę</title>
     <link rel="stylesheet" href="style.css">
     <script src="scripts.js"></script>
-    <script src="editBook.js">
+    <script src="editElement.js">
     </script>
 </head>
 
@@ -17,7 +17,7 @@
         <p class="Edit">Edytuj Ilosc </p>
         <input id="CountEdit" tybe="number" class="Edycja" placeholder="Ilosc"></input>
     </div>
-    <button onclick="approveEdit(); window.location.href = 'library.html'" class="Edycja">Zapisz</button>
+    <button onclick='editElement("book"); window.location.href = "library.html"' class="Edycja">Zapisz</button>
     <button onclick="window.location.href = 'library.html'" class="Edycja">Anuluj</button>
     <button class="BackToMenu" onclick="window.location.href = 'menu.html'">Wróć do menu</button>
 </body>
