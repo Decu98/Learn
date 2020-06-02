@@ -2,17 +2,17 @@
 var biblioteka = [];
 var users = [];
 
-function updateStorage(target){
+function updateStorage(target) {
 	switch (target) {
 		case "book":
 			var loadData = localStorage.getItem('books');
-				if (loadData !== null) {
+			if (loadData !== null) {
 				biblioteka = JSON.parse(loadData);
 			}
 			break;
 		case "user":
 			var loadData = localStorage.getItem("users");
-				if (loadData !== null) {
+			if (loadData !== null) {
 				users = JSON.parse(loadData);
 			}
 			break;
@@ -21,10 +21,6 @@ function updateStorage(target){
 	}
 
 
-}
-
-function clearID() {
-	localStorage.removeItem("IDofBookEdited");
 }
 
 function clearBox(elementID) {

@@ -1,7 +1,7 @@
 
 function toLibrary() {
 	updateStorage("book");
-	showData(biblioteka,'Main', 'book');
+	showData(biblioteka, 'Main', 'book');
 }
 function searchFor() {
 	temp = [];
@@ -15,5 +15,5 @@ function searchFor() {
 			temp.push(restart);
 		}
 	}
-	showData(temp,'Main', 'book');
+	showData(temp, 'Main', 'book');
 }

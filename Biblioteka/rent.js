@@ -26,15 +26,27 @@ function searchUser() {
 }
 
 function rentBook(bookID, userID) {
-	var rentedBooks = users[bookID].Rented
-	var checkBooks = rentedBooks.includes(+bookID)
-	if(checkBooks == true){
+	updateStorage("book");
+	var rentedBooks = users[userID].Rented
+	var checkBooks = rentedBooks.includes(+bookID);
+	var count = {
+		Amout: biblioteka[bookID].Ilosc,
+		In: biblioteka[bookID].WBibliotece,
+		Out: biblioteka[bookID].Wypozyczone
+	};
+	if (checkBooks == true) {
 		alert("Masz już tą książkę");
 	}
-	else{
+	else if (count.Amout == count.In + count.Out && count.In > 0) {
 		alert("Proszę");
 		rentedBooks.push(bookID);
+		localStorage.setItem("users", JSON.stringify(users));
+		biblioteka[bookID].Wypozyczone = biblioteka[bookID].Wypozyczone + 1;
+		biblioteka[bookID].WBibliotece = biblioteka[bookID].WBibliotece - 1;
+		localStorage.setItem("books", JSON.stringify(biblioteka))
 	}
-	console.log(checkBooks)
-	console.log(users[bookID].Rented)
+	else {
+		alert("Nie ma już książek");
+	}
+	rent_open();
 }
