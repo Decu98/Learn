@@ -11,4 +11,5 @@ function approveEdit() {
 	temporarySave[bookID].Autor = newAuthor;
 	temporarySave[bookID].Ilosc = newCount;
 	localStorage.setItem('books', JSON.stringify(temporarySave));
+	alert("Zedytowano książkę");
 }

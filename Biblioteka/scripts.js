@@ -1,5 +1,5 @@
 
-var biblioteka = [];
+var library = [];
 var users = [];
 
 function updateStorage(target) {
@@ -7,7 +7,7 @@ function updateStorage(target) {
 		case "book":
 			var loadData = localStorage.getItem('books');
 			if (loadData !== null) {
-				biblioteka = JSON.parse(loadData);
+				library = JSON.parse(loadData);
 			}
 			break;
 		case "user":
@@ -19,8 +19,6 @@ function updateStorage(target) {
 		default:
 			console.log("Select target");
 	}
-
-
 }
 
 function clearBox(elementID) {
@@ -61,13 +59,13 @@ function showData(x, id, type, place) {
 				var helper = x[key];
 				var newDivElement = document.createElement("div");
 				newDivElement.setAttribute("class", "LibraryBooks");
-				delete helper.Rented;
-				delete helper.Rented;
 				for (var element in helper) {
-					var newX = document.createElement("P");
-					var textnode = document.createTextNode(element + ": " + helper[element]);
-					newX.appendChild(textnode);
-					newDivElement.appendChild(newX);
+					if(element !== "Id" && element !== "Rented"){
+						var newX = document.createElement("P");
+						var textnode = document.createTextNode(element + ": " + helper[element]);
+						newX.appendChild(textnode);
+						newDivElement.appendChild(newX);
+					}
 				}
 				var position = document.getElementById(id);
 				position.appendChild(newDivElement);
@@ -77,6 +75,12 @@ function showData(x, id, type, place) {
 					choseButton.setAttribute('onclick', `rentBook(${chosebook},${x[key].Id})`);
 					choseButton.innerHTML = "Wybierz";
 					newDivElement.appendChild(choseButton);
+				}
+				if(place == "edit"){
+					var editButton = document.createElement('button');
+					editButton.setAttribute('onclick', `window.location.href = 'editUser.html?userCode=${x[key].Id}'`);
+					editButton.innerHTML = "Edytuj";
+					newDivElement.appendChild(editButton);
 				}
 			}
 			break;

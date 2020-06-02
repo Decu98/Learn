@@ -11,5 +11,6 @@ function addUser() {
 		users.push(user);
 		localStorage.setItem('users', JSON.stringify(users));
 	}
+	alert("Dodano użytkownika");
 }
 

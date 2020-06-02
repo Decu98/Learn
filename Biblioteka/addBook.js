@@ -13,5 +13,6 @@ function addBook() {
 		localStorage.setItem('books', JSON.stringify(biblioteka));
 
 	}
+	alert("Dodano książkę");
 }
 

@@ -3,11 +3,11 @@ function rent_open() {
 	updateStorage("book");
 	var urlParams = new URLSearchParams(window.location.search)
 	var getIdFromURL = urlParams.get("bookCode")
-	document.getElementById("rent_title").innerHTML = "Tytuł: " + biblioteka[getIdFromURL].Tytuł;
-	document.getElementById("rent_author").innerHTML = "Autor: " + biblioteka[getIdFromURL].Autor;
-	document.getElementById("rent_isbn").innerHTML = "ISBN: " + biblioteka[getIdFromURL].ISBN;
-	document.getElementById("rent_inlibrary").innerHTML = "Ilość w bibliotece: " + biblioteka[getIdFromURL].WBibliotece;
-	document.getElementById("rent_rented").innerHTML = "Ilość wypożczonych: " + biblioteka[getIdFromURL].Wypozyczone;
+	document.getElementById("rent_title").innerHTML = "Tytuł: " + library[getIdFromURL].Tytuł;
+	document.getElementById("rent_author").innerHTML = "Autor: " + library[getIdFromURL].Autor;
+	document.getElementById("rent_isbn").innerHTML = "ISBN: " + library[getIdFromURL].ISBN;
+	document.getElementById("rent_inlibrary").innerHTML = "Ilość w bibliotece: " + library[getIdFromURL].WBibliotece;
+	document.getElementById("rent_rented").innerHTML = "Ilość wypożczonych: " + library[getIdFromURL].Wypozyczone;
 }
 
 function searchUser() {
@@ -30,9 +30,9 @@ function rentBook(bookID, userID) {
 	var rentedBooks = users[userID].Rented
 	var checkBooks = rentedBooks.includes(+bookID);
 	var count = {
-		Amout: biblioteka[bookID].Ilosc,
-		In: biblioteka[bookID].WBibliotece,
-		Out: biblioteka[bookID].Wypozyczone
+		Amout: library[bookID].Ilosc,
+		In: library[bookID].WBibliotece,
+		Out: library[bookID].Wypozyczone
 	};
 	if (checkBooks == true) {
 		alert("Masz już tą książkę");
@@ -41,9 +41,9 @@ function rentBook(bookID, userID) {
 		alert("Proszę");
 		rentedBooks.push(bookID);
 		localStorage.setItem("users", JSON.stringify(users));
-		biblioteka[bookID].Wypozyczone = biblioteka[bookID].Wypozyczone + 1;
-		biblioteka[bookID].WBibliotece = biblioteka[bookID].WBibliotece - 1;
-		localStorage.setItem("books", JSON.stringify(biblioteka))
+		library[bookID].Wypozyczone = library[bookID].Wypozyczone + 1;
+		library[bookID].WBibliotece = library[bookID].WBibliotece - 1;
+		localStorage.setItem("books", JSON.stringify(library))
 	}
 	else {
 		alert("Nie ma już książek");
