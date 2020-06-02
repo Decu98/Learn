@@ -60,7 +60,7 @@ function showData(x, id, type, place) {
 				var newDivElement = document.createElement("div");
 				newDivElement.setAttribute("class", "LibraryBooks");
 				for (var element in helper) {
-					if(element !== "Id" && element !== "Rented"){
+					if (element !== "Id" && element !== "Rented") {
 						var newX = document.createElement("P");
 						var textnode = document.createTextNode(element + ": " + helper[element]);
 						newX.appendChild(textnode);
@@ -76,7 +76,7 @@ function showData(x, id, type, place) {
 					choseButton.innerHTML = "Wybierz";
 					newDivElement.appendChild(choseButton);
 				}
-				if(place == "edit"){
+				if (place == "edit") {
 					var editButton = document.createElement('button');
 					editButton.setAttribute('onclick', `window.location.href = 'editUser.html?userCode=${x[key].Id}'`);
 					editButton.innerHTML = "Edytuj";
