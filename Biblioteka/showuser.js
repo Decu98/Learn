@@ -9,8 +9,9 @@ function searchFor() {
 	var getText = document.getElementById("Szukaj").value;
 	for (i = 0; i < users.length; i++) {
 		var objectToString = JSON.stringify(users[i]);
-		var matchText = objectToString.includes(getText);
-		if (matchText == true) {
+		var arrayOfElements = Object.values(library[i]);
+		var checkIfContain = arrayOfElements.includes(getText);
+		if (checkIfContain == true) {
 			var restart = JSON.parse(objectToString);
 			temp.push(restart);
 		}
