@@ -114,6 +114,11 @@ function setId(type) {
 	}
 }
 
+class Glob{
+	function name(x) 
+	}
+
+}
 
 
 
