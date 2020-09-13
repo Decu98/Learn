@@ -37,11 +37,43 @@ class linkedList
     }
 };
 
+class command
+{
+    public:
+        void Add()
+        {
+            cout << "ADD";   
+        }
+        void Delete()
+        {
+            cout << "DELETE";
+        }
+        void List()
+        {
+            cout << "LIST";
+        }
+};
+
 int main()
 {
     linkedList a;
     a.addToList(0);
-    a.addToList(1);
-    a.addToList(2);
+    command x;
+    int input;
+    cin >> input;
+    switch(input)
+    {
+        case 1:
+            x.Add();
+            break;
+        case 2:
+            x.Delete();
+            break;
+        case 3:
+            x.List();
+            break;
+        default:
+            cout << "Try ADD, DELETE or LIST";
+    }
     return 0;
 }
