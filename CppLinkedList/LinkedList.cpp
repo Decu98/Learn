@@ -10,70 +10,111 @@ struct list
 
 class linkedList
 {
-    private:
-        list *start,*last;
-    public:
-        linkedList()
-        {
-            start = NULL;
-            last = NULL;
-        }
+private:
+    list *start, *last;
+
+public:
+    linkedList()
+    {
+        start = NULL;
+        last = NULL;
+    }
+    list *getstart()
+    {
+        return start;
+    }
     void addToList(int n)
     {
-        list *tmp = new list;  
-        tmp -> info = n;
-        tmp-> next = NULL;
-        
-        if(start == NULL)
+        list *tmp = new list;
+        tmp->info = n;
+        tmp->next = NULL;
+
+        if (start == NULL)
         {
             start = tmp;
             last = tmp;
         }
         else
         {
-            last -> next = tmp;
-            last = last -> next;
+            last->next = tmp;
+            last = last->next;
+        }
+    }
+    void deleteFromList(list *before_del)
+    {
+        list *temp;
+        temp = before_del->next;
+        before_del->next = temp->next;
+        delete temp;
+    }
+
+    void display()
+    {
+        list *tmp;
+        tmp = start;
+        while (tmp != NULL)
+        {
+            cout << tmp->info << endl;
+            tmp = tmp->next;
         }
     }
 };
 
 class command
 {
+    linkedList myList;
     public:
         void Add()
         {
-            cout << "ADD";   
+            int toAdd;
+            cin >> toAdd;
+            cout << "ADDED\n" << toAdd << endl;
+            myList.addToList(toAdd);
         }
         void Delete()
         {
-            cout << "DELETE";
+            myList.deleteFromList(myList.getstart());
+            cout << "DELETED";
         }
         void List()
         {
-            cout << "LIST";
+            myList.display();
         }
+};
+void control()
+{
+    command control;
+    string input;
+    int zero = 1;
+    while(zero != 0)
+    {
+        cin >> input;
+        if(input == "ADD")
+        {
+            control.Add();
+        }
+        else if (input == "DELETE")
+        {
+            control.Delete();
+        }
+        else if (input == "LIST")
+        {
+            control.List();
+        }
+        else if (input == "END")
+        {
+            zero = 0;
+        }
+        else
+        {
+            cout << "Try ADD, DELETE, LIST or END";
+        }
+    }
+
 };
 
 int main()
 {
-    linkedList a;
-    a.addToList(0);
-    command x;
-    int input;
-    cin >> input;
-    switch(input)
-    {
-        case 1:
-            x.Add();
-            break;
-        case 2:
-            x.Delete();
-            break;
-        case 3:
-            x.List();
-            break;
-        default:
-            cout << "Try ADD, DELETE or LIST";
-    }
+    control();
     return 0;
-}
+};
