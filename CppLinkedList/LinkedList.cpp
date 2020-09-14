@@ -67,6 +67,7 @@ class command
         void Add()
         {
             int toAdd;
+            cout << "Give int:\n" << endl;
             cin >> toAdd;
             cout << "ADDED\n" << toAdd << endl;
             myList.addToList(toAdd);
@@ -74,7 +75,7 @@ class command
         void Delete()
         {
             myList.deleteFromList(myList.getstart());
-            cout << "DELETED";
+            cout << "DELETED\n";
         }
         void List()
         {
@@ -107,7 +108,7 @@ void control()
         }
         else
         {
-            cout << "Try ADD, DELETE, LIST or END";
+            cout << "Try ADD, DELETE, LIST or END\n";
         }
     }
 
