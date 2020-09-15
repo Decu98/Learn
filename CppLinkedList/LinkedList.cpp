@@ -40,12 +40,17 @@ public:
             last = last->next;
         }
     }
-    void deleteFromList(list *before_del)
+    void deleteFromList(int n)
     {
-        list *temp;
-        temp = before_del->next;
-        before_del->next = temp->next;
-        delete temp;
+        list *tmp;
+        tmp = start;
+        for(int i = 0; i < n-2; i++)
+        {
+            tmp = tmp->next;
+        }
+        list *next = tmp->next->next;
+        delete tmp->next;
+        tmp->next = next;
     }
 
     void display()
@@ -67,15 +72,18 @@ class command
         void Add()
         {
             int toAdd;
-            cout << "Give int:\n" << endl;
+            cout << "Give int:" << endl;
             cin >> toAdd;
             cout << "ADDED\n" << toAdd << endl;
             myList.addToList(toAdd);
         }
         void Delete()
         {
-            myList.deleteFromList(myList.getstart());
+            int toDel;
+            cout << "Give positon:" << endl;
+            cin >> toDel;
             cout << "DELETED\n";
+            myList.deleteFromList(toDel);
         }
         void List()
         {
